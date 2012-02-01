@@ -11,7 +11,7 @@ import org.inceptus.subsystems.Drive;
 
 /**
  *
- * @author Team 342
+ * @author inceptus
  */
 public class DriveWithJoystick extends CommandBase {
     private Drive drive = Drive.getInstance();
