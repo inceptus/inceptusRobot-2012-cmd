@@ -9,7 +9,7 @@ import org.inceptus.subsystems.Drive;
 
 /**
  *
- * @author Team 342
+ * @author inceptus
  */
 public class GyroBalanceCommand extends CommandBase {
     private Drive drive = Drive.getInstance();
