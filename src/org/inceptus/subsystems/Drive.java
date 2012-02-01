@@ -15,7 +15,7 @@ import org.inceptus.RobotMap;
 
 /**
  *
- * @author Team 342
+ * @author inceptus
  */
 public class Drive extends Subsystem {
 
