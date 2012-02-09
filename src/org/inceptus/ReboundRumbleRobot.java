@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import org.inceptus.commands.drive.DriveWithJoystick;
+import org.inceptus.subsystems.TargetFinder;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,6 +23,7 @@ public class ReboundRumbleRobot extends IterativeRobot {
 
     Command autonomousCommand;
     private Command joystickCommand;
+    TargetFinder camera;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -29,6 +31,7 @@ public class ReboundRumbleRobot extends IterativeRobot {
      */
     public void robotInit() {
         joystickCommand = new DriveWithJoystick();
+        camera = new TargetFinder();
     }
 
     public void autonomousInit() {
@@ -44,6 +47,7 @@ public class ReboundRumbleRobot extends IterativeRobot {
     }
 
     public void teleopInit() {
+        camera.processImage();
         joystickCommand.start();
     }
 
@@ -51,6 +55,10 @@ public class ReboundRumbleRobot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+        Scheduler.getInstance().run();
+    }
+
+    public void teleopContinuous() {
         Scheduler.getInstance().run();
     }
 }
