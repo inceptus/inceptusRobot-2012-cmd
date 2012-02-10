@@ -162,9 +162,17 @@ public class TargetFinder {
 //Method assumes the camera is looking at the rectangle straight on: can be adjusted later
 
     public double getDistance(Target t) {
+        boolean debugMyProc = true;
         double result;
+        
+        if (debugMyProc)
+        {
+            writeDebug("t.rawBboxHeight=" + t.rawBboxHeight);
+            writeDebug("Center x, y (" + t.centerX + "," + t.centerY + ")");
+            writeDebug("Cornerr x, y (" + t.rawBboxCornerX + "," + t.rawBboxCornerY + ")");
+        }
         result = 3185.6 / (t.rawBboxHeight * Math.tan(0.4101));
-        return (result);
+        return (result * 1.0125);
     }
 
     public Target getHighestTarget() {
@@ -185,5 +193,9 @@ public class TargetFinder {
 
     public Target getTarget4() {
         return target4;
+    }
+    private void writeDebug(String pMsg)
+    {
+        System.out.println(pMsg);
     }
 }
